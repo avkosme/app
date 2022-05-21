@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2beta28
+kind: Config
+metadata:
+  name: app
+build:
+  artifacts:
+  - image: app
+    context: .
+    docker:
+      dockerfile: build/Dockerfile
+deploy:
+  helm:
+    releases:
+    - name: helm
+      artifactOverrides:
+        image: app
+      chartPath: deployments/helm
