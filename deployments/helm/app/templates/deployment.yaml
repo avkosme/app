@@ -17,8 +17,5 @@ spec:
      spec:
        containers:
        - name: {{ .Chart.Name }}
-         image: {{ .Values.image }}
-       restartPolicy: Always
-#         envFrom:
-#         - secretRef:
-#             name: app-secret
+         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+         imagePullPolicy: {{ .Values.image.pullPolicy }}

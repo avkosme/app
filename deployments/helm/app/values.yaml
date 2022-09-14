@@ -1,1 +1,4 @@
-image: ghcr.io/avkosme/hugo-dev:server
+image:
+  repository: ghcr.io/avkosme/hugo-dev
+  tag: latest
+  pullPolicy: IfNotPresent
