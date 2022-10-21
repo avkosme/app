@@ -4,11 +4,16 @@ metadata:
   name: app
 
 build:
+  local: {}
   artifacts:
     - image: ghcr.io/avkosme/hugo-dev
       context: .
       docker:
         dockerfile: build/Dockerfile
+    - image: ghcr.io/avkosme/hugo-dev-web
+      context: .
+      docker:
+        dockerfile: build/Dockerfile.web
 deploy:
   helm:
     releases:
@@ -18,3 +23,15 @@ deploy:
       chartPath: deployments/helm/app
       imageStrategy:
         helm: {}
+    - name: hugo
+      artifactOverrides:
+        image: ghcr.io/avkosme/hugo-dev-web
+      chartPath: deployments/helm/hugo
+      imageStrategy:
+        helm: {}
+portForward:
+- resourceType: deployment
+  resourceName: hugo
+  namespace: default
+  port: 1313
+  localPort: 1313

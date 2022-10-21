@@ -19,3 +19,5 @@ bin/
 Session.vim
 docker-compose.override.yml
 __debug_bin
+app.code-workspace
+.vscode

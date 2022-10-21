@@ -4,6 +4,7 @@ Golang skaffold k8s environment.
 
 ## Installation
 
+
 Use local Kubernetes [minikube start](https://minikube.sigs.k8s.io/docs/start/) to learn and develop for Kubernetes.
 
 ```bash
@@ -17,7 +18,14 @@ minikube start
 ```bash
 git checkout arm
 ```
-## Start App
+
+## Start the web app use docker
+
+```bash
+make start
+```
+
+## Start microservices use kubernetes
 ```bash
 skaffold dev
 ```

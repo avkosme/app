@@ -1,4 +1,4 @@
 image:
-  repository: ghcr.io/avkosme/hugo-dev
+  repository: ghcr.io/avkosme/hugo-dev-web
   tag: latest
   pullPolicy: IfNotPresent
