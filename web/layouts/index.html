@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <body>
-      Hello World!
-  </body>
+
+{{ $style := resources.Get "sass/main.scss" | resources.ToCSS | resources.Minify
+| resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" />
+
+<body>
+  <div class="w3-container">
+    <div className="w3-panel">
+      <h1>Hello World!</h1>
+    </div>
+
+    <div id="app"></div>
+    {{ $slide1 := resources.Get "img/index.jpg" | resources.Fingerprint }}
+    {{ $slide1Resize := $slide1.Resize "1600x q50"}}
+    <img src="{{ $slide1Resize.RelPermalink }}" style="width: 100%" />
+  </div>
+
+</body>
+
+{{ $react := resources.Get "scripts/src/dist/main.js" | resources.Fingerprint }}
+<script src="{{ $react.Permalink }}"></script>
+
 </html>

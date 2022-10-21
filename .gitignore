@@ -25,3 +25,4 @@ app.code-workspace
 public
 web/resources
 node_modules
+web/assets/scripts/src/dist
