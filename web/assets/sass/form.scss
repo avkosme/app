@@ -1,0 +1,17 @@
+.validate {
+  &__error {
+    color: red;
+    font-size: 0.7rem;
+    margin: 0px 0 -5px;
+  }
+  &__success {
+    color: green;
+    font-size: 0.7rem;
+    margin: 5px 0 -3px 0;
+  }
+
+  &__hidden {
+    visibility: hidden;
+    margin: 0px 0 -5px;
+  }
+}

@@ -21,3 +21,7 @@ docker-compose.override.yml
 __debug_bin
 app.code-workspace
 .vscode
+.DS_Store
+public
+web/resources
+node_modules

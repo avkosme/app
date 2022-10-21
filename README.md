@@ -22,7 +22,8 @@ git checkout arm
 ## Start the web app use docker
 
 ```bash
-make start
+make dev.js
+make dev.hugo
 ```
 
 ## Start microservices use kubernetes
