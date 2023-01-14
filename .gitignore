@@ -25,4 +25,7 @@ app.code-workspace
 public
 web/resources
 node_modules
+web/.hugo_build.lock
+web/public
+web/resources
 web/assets/scripts/src/dist
