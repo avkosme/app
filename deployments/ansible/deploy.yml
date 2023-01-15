@@ -1,0 +1,9 @@
+---
+- name: Deploy
+  hosts:
+    - all
+  roles:
+    - deploy
+  gather_facts: no
+  serial: 2
+  become: yes

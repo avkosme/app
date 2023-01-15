@@ -1,0 +1,57 @@
+---
+- name: Create BASE_PATH directory
+  file:
+    path: '{{ item }}'
+    state: directory
+    recurse: yes
+    mode: '1777'
+    owner: root
+    group: root
+  with_items:
+    - '{{ BASE_PATH }}'
+    - '{{ BASE_PATH }}/bin'
+  tags: deploy
+
+- name: Create .env file
+  template:
+    src: .env.j2
+    dest: '{{ BASE_PATH }}/.env'
+  tags: deploy
+
+- name: Copy docker-compose.yml
+  template:
+    src: docker-compose.yml.j2
+    dest: '{{ BASE_PATH }}/docker-compose.yml'
+  tags: deploy
+
+- name: Copy bin main file
+  copy:
+    src: "{{ playbook_dir }}/../../{{ item }}"
+    dest: "{{ BASE_PATH }}/{{ item }}"
+    owner: root
+    group: root
+    mode: 0754
+  with_items:
+    - bin/
+  tags: deploy
+
+
+- name: Stop/start container app
+  shell: |
+    docker-compose stop
+    docker-compose up -d
+  args:
+    chdir: '{{ BASE_PATH }}'
+  when: inventory_hostname == "dev-app"
+  become: no
+  tags: deploy
+
+- name: Stop/start container app
+  shell: |
+    docker compose stop
+    docker compose up -d
+  args:
+    chdir: '{{ BASE_PATH }}'
+  when: inventory_hostname != "dev-app"
+  become: no
+  tags: deploy

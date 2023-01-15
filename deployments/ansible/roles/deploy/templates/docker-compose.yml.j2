@@ -1,0 +1,19 @@
+version: "3.5"
+
+networks:
+  app-network:
+    name: app-network
+
+services:
+  app:
+    image: ghcr.io/avkosme/hugo-dev:arm
+    privileged: true
+    command: bin/main
+    volumes:
+      - .:/opt/app
+    working_dir: /opt/app
+    env_file:
+      - .env
+    networks:
+      - app-network
+

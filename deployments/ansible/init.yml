@@ -1,0 +1,8 @@
+---
+- name: Init
+  hosts:
+    - all
+  roles:
+    - init
+  gather_facts: no
+  serial: 2

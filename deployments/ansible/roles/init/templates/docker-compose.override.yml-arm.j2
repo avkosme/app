@@ -1,0 +1,12 @@
+version: "3.5"
+
+
+services:
+  app:
+    image: ghcr.io/avkosme/hugo-dev:arm
+    privileged: true
+    volumes:
+      - .:/opt/app
+    working_dir: /opt/app/web/public
+    ports:
+      - 8080:80

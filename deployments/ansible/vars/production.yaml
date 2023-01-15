@@ -1,0 +1,8 @@
+---
+BASE_PATH: /opt/app
+BASE_NAME: app
+ENVIRONMENT:
+  MODE_DEV: False
+  TZ: "Europe/Moscow"
+
+  GOPRIVATE: github.com/*
