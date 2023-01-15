@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+{{ $style := resources.Get "sass/main.scss" | resources.ToCSS | resources.Minify
+| resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" />
+
+{{ $styleFaBrands := resources.Get "sass/fontawesome-free-6.2.1-web/brands.scss" | resources.ToCSS | resources.Minify
+| resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $styleFaBrands.Permalink }}" />
+
+{{ $styleFaSolid := resources.Get "sass/fontawesome-free-6.2.1-web/solid.scss" | resources.ToCSS | resources.Minify
+| resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $styleFaSolid.Permalink }}" />
+
+{{ $styleFa := resources.Get "sass/fontawesome-free-6.2.1-web/fontawesome.scss" | resources.ToCSS | resources.Minify
+| resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $styleFa.Permalink }}" />
+
+<body>
+  <div class="w3-container">
+    <div class="w3-row">
+      <div class="w3-col" style="width:200px">
+        <div class="vertical-menu">
+          <a href="/">
+            <span>
+              <i class="fa fa-home"></i>
+            </span>
+          </a>
+          <a href="/about" class="active">About</a>
+        </div>
+      </div>
+      <div class="w3-rest">
+        <div id="tables"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+{{ $react := resources.Get "scripts/src/dist/main.js" | resources.Fingerprint }}
+<script src="{{ $react.Permalink }}"></script>
+
+</html>

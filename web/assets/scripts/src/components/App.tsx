@@ -50,13 +50,12 @@ function App() {
   return (
     <div>
       <form className="order">
-        <h3>Отправьте заявку</h3>
-
+        <h3>Form</h3>
         <div className="w3-panel w3-padding-top-24">
-          <label>Ваше имя:</label>
+          <label>First Name:</label>
           <input
             type="text"
-            placeholder="Укажите Ваше имя"
+            placeholder="Type You First Name"
             name="name"
             autoComplete="off"
             onChange={(e) => setOrderData(e)}
@@ -66,15 +65,15 @@ function App() {
               validate && !order.name ? "validate__error" : "validate__hidden"
             }
           >
-            Пожалуйста, укажите Ваше имя
+            Please, type You First Name
           </div>
         </div>
 
         <div className="w3-panel w3-border-top w3-padding-top-24">
-          <label>Ваш контакт:</label>
+          <label>You phone:</label>
           <input
             type="text"
-            placeholder="Укажите контактные данные"
+            placeholder="Type you phone"
             name="phone"
             autoComplete="off"
             onChange={(e) => setOrderData(e)}
@@ -84,7 +83,7 @@ function App() {
               validate && !order.phone ? "validate__error" : "validate__hidden"
             }
           >
-            Пожалуйста, укажите как с Вами связаться
+            Please, type you phone
           </div>
         </div>
 
