@@ -16,14 +16,30 @@ minikube start
 ✅ Native Apple Silicon Support.
 
 ```bash
-git checkout arm
+git checkout arm-web
 ```
 
 ## Start the web app use docker
 
+Run node js container and install dependencies
+
 ```bash
+make run.node
+yarn install
+```
+Start node js container for develop
+
+```bash
+make start.node
+
 make dev.js
 make dev.hugo
+```
+
+Start hugo container for develop in several console
+
+```bash
+make start.hugo
 ```
 
 ## Start microservices use kubernetes
